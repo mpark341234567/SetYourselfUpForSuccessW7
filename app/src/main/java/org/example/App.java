@@ -3,12 +3,40 @@
  */
 package org.example;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class App {
     public String getGreeting() {
         return "Hello World!";
     }
 
     public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+        ArrayList<Integer> input1 = new ArrayList<>(Arrays.asList()); 
+        DupeRemover.removeDuplicates(input1); // Returns []
+        System.out.println(input1);
+
+        ArrayList<Integer> input2 = new ArrayList<>(Arrays.asList(1,2,3)); 
+        input2 = DupeRemover.removeDuplicates(input2); // Returns randomized order of [1,2,3]
+        System.out.println(input2);
+
+        ArrayList<String> input3 = new ArrayList<>(Arrays.asList("A", "A", "B")); 
+        input3 = DupeRemover.removeDuplicates(input3); // Returns randomized order of ["A", "B"]
+        System.out.println(input3);
+
+        ArrayList<Integer> input4 = new ArrayList<>(Arrays.asList(1, 1, 3, 3, 5, 5)); 
+        input4 = DupeRemover.removeDuplicates(input4); // Returns randomized order of [1, 3, 5]
+        System.out.println(input4);
+
+        ArrayList<Character> input5 = new ArrayList<>(Arrays.asList('A', 'B', 'C', 'C', 'A')); 
+        input5 = DupeRemover.removeDuplicates(input5); // Returns randomized order of ['A', 'B', 'C']
+        System.out.println(input5);
+
+        //Note: The order of elements in the output may vary due to the nature of HashSet
+        //These cases listed above are simple, so the order of the elements will be ordered
+
+        ArrayList<String> input6 = new ArrayList<>(Arrays.asList("Randomize", "Sorted?", "Randomize", "Sort", "Order", "Hello", "Java")); 
+        input6 = DupeRemover.removeDuplicates(input6); // Returns randomized order of ["Randomize", "Sorted?", "Sort", "Order", "Hello", "Java"]
+        System.out.println(input6);
     }
 }
